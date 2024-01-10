@@ -16,7 +16,8 @@ label {
 
 table {
 	margin-bottom: 0 !important;
-	tbody > tr > td:first-child {
+
+	tbody>tr>td:first-child {
 		width: 2%;
 		white-space: nowrap;
 	}
@@ -24,23 +25,27 @@ table {
 
 span.fa {
 	transition: all 400ms;
+
 	&:hover {
 		cursor: pointer !important;
 		color: #333;
 	}
 }
-.tr-selected{
-	>td:not(:first-child){
-		background-color:black;
-		color:#fff
+
+.tr-selected {
+	>td:not(:first-child) {
+		background-color: black;
+		color: #fff
 	}
 }
+
 .tr-detail {
-	> td {
+	>td {
 		padding: 0 !important;
 		padding-bottom: 10px !important;
-		
-border-top: none !important;
+
+		border-top: none !important;
+
 		&:not(:first-child) {
 
 			padding: 5px 5px 5px 5px;
@@ -49,57 +54,68 @@ border-top: none !important;
 }
 
 .detail-content {
+
 	ul,
 	li {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
+
 	ul {
 		li {
 			border: 2px solid lighten(black, 0%);
 			border-width: 0 0 0px 1px;
 			display: flex;
+
 			.detail {
 				margin: 0;
-				padding:0 10px 5px 0;
+				padding: 0 10px 5px 0;
 				margin-bottom: 10px;
 				flex-grow: 1;
 				flex-basis: 100%;
-				fieldset{
+
+				fieldset {
 					border: 1px solid lighten(black, 20%);
-					legend{
-						font-size:90%;
-						margin-left:5px;
-						width:auto;
-						margin-bottom:0;
-						border:none;
+
+					legend {
+						font-size: 90%;
+						margin-left: 5px;
+						width: auto;
+						margin-bottom: 0;
+						border: none;
 					}
-					>div{
-						margin-left:5px;
-						margin-right:12px;
-						table.table-condensed{
-							tbody>tr>td{
-								padding:2px;
+
+					>div {
+						margin-left: 5px;
+						margin-right: 12px;
+
+						table.table-condensed {
+							tbody>tr>td {
+								padding: 2px;
 							}
 						}
 					}
 				}
 
 				&:first-child {
-					border-top: 1px  lighten(black, 0%);
+					border-top: 1px lighten(black, 0%);
 					flex-basis: 2%;
 					background: #fff;
 					margin-top: 15px;
 				}
 			}
+
 			&:first-child {
 				padding-top: 5px;
 			}
+
 			&:last-child {
 				margin-bottom: 20px;
-				> .detail {
+
+				>.detail {
 					margin-bottom: 0;
+
 					&:first-child {
 						margin-left: -1px;
 					}
@@ -107,4 +123,24 @@ border-top: none !important;
 			}
 		}
 	}
+}
+
+.fa-chevron-right {
+	cursor: pointer;
+}
+
+.fa-chevron-right.fa-rotate-90 {
+	transform: rotate(90deg);
+}
+
+.tr-detail {
+	display: table-row !important;
+}
+
+.tr-detail .detail-content ul li .detail {
+	display: block !important;
+}
+
+.tr-detail .detail-content ul li .detail-main {
+	display: block !important;
 }
