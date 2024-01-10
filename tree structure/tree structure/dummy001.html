@@ -87,11 +87,58 @@
                                                                                             <th>Action </th>
                                                                                         </tr>
                                                                                     </thead>
-                                                                                    <tr>
+                                                                                    <tr class="tr-subitem">
+                                                                                        <td> <span
+                                                                                                class="fa fa-chevron-right"></span>
+                                                                                        </td>
+
                                                                                         <td>Item001</td>
                                                                                         <td>100</td>
                                                                                         <td>packing</td>
                                                                                         <td>view</td>
+                                                                                    </tr>
+                                                                                    <tr class="tr-subitem hidden">
+                                                                                        <td colspan="5">
+                                                                                            <div class="detail-content">
+                                                                                                <ul>
+                                                                                                    <li>
+                                                                                                        <div
+                                                                                                            class="detail detail-main">
+                                                                                                            <fieldset>
+                                                                                                                <div>
+                                                                                                                    <table
+                                                                                                                        class="table table-condensed">
+                                                                                                                        <thead>
+                                                                                                                            <tr>
+                                                                                                                                <th>SubItem
+                                                                                                                                    Name
+                                                                                                                                </th>
+                                                                                                                                <th> Quantity
+                                                                                                                                </th>
+                                                                                                                                <th> Process
+                                                                                                                                </th>
+                                                                                                                                <th> Action
+                                                                                                                                </th>
+                                                                                                                            </tr>
+                                                                                                                        </thead>
+                                                                                                                        <tr>
+                                                                                                                            <td>Subitem001
+                                                                                                                            </td>
+                                                                                                                            <td>600
+                                                                                                                            </td>
+                                                                                                                            <td>bending
+                                                                                                                            </td>
+                                                                                                                            <td>view
+                                                                                                                            </td>
+                                                                                                                        </tr>
+                                                                                                                    </table>
+                                                                                                                </div>
+                                                                                                            </fieldset>
+                                                                                                        </div>
+                                                                                                    </li>
+                                                                                                </ul>
+                                                                                            </div>
+                                                                                        </td>
                                                                                     </tr>
                                                                                     <tr>
                                                                                         <td>Item002</td>
@@ -108,10 +155,7 @@
                                                         </div>
                                                     </td>
                                                 </tr>
-                                                <tr class="tr-item">
-                                                    <td>
-                                                        <span class="fa fa-chevron-right"></span>
-                                                    </td>
+                                                <tr>
                                                     <td>Masterproduct002</td>
                                                     <td>300</td>
                                                     <td>welding</td>
@@ -147,7 +191,18 @@
                     $parentTr = $span.closest(".tr-item");
 
                 // Toggle visibility of details
-                $parentTr.next(".tr-item.hidden").toggleClass("hidden");
+                $parentTr.next(".tr-item").toggleClass("hidden");
+
+                // Toggle chevron icon
+                $span.toggleClass("fa-rotate-90");
+            });
+
+            $(".tr-subitem .fa").on("click", function () {
+                var $span = $(this),
+                    $parentTr = $span.closest(".tr-subitem");
+
+                // Toggle visibility of details
+                $parentTr.next(".tr-subitem").toggleClass("hidden");
 
                 // Toggle chevron icon
                 $span.toggleClass("fa-rotate-90");
