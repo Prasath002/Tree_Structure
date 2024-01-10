@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="dummy.css" rel="stylesheet">
+        <script src="dummy.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <style>
+            
+        </style>
+    </head>
+    <body><br>
+<table class="table table-condensed">
+	<thead>
+		<tr>
+			<th>Status</th>
+			<th>SuborderId</th>
+			<th>Customer Name</th>
+			<th>Quantity</th>
+			<th>Delivery Date</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr id="tr-detail" class="tr-detail hidden">
+			<td></td>
+			<td colspan="4">
+				<div class="detail-content">
+					<ul>
+						<li>
+							<div class="detail"></div>
+
+							<div class="detail detail-main">
+								<fieldset>
+									<legend><span class="label label-primary">Master Product1</span></legend>
+									<div>
+										<table class="table table-condensed">
+											<thead>
+												<tr>
+													<th>SalesOrderId</th>
+												</tr>
+											</thead>
+											<tr>
+												<td>123</td>
+												<td>123</td>
+												<td>123</td>
+												<td>123</td>
+												<td>123</td>
+											</tr>
+											<tr>
+												<td>123</td>
+												<td>123</td>
+												<td>123</td>
+												<td>123</td>
+												<td>123</td>
+											</tr>
+										</table>
+									</div>
+								</fieldset>
+							</div>
+						</li>
+
+					</ul>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td><span class="fa fa-chevron-right fa-fw"></span> </td>
+			<td colspan="4">SalesOrder1</td>
+		</tr>
+	</tbody>
+</table>
+        <script>
+            (function() {
+	$("span.fa").on("click", function() {
+		var $span = $(this),
+			$parentTr = $span.closest("tr");
+
+		//remove
+		if ($span.hasClass("fa-rotate-90")) {
+			$span.removeClass("fa-rotate-90");
+			$parentTr
+				
+				.next()
+				.children("td")
+				.animate({ padding: 0 })
+				.wrapInner("<div />")
+				.children()
+				.slideUp(function() {
+					var $tr = $(this).closest("tr");
+
+					// $tr
+					// 	.prev("tr")
+					// 	.find(".active")
+					// 	.removeClass("active");
+					$tr.remove();
+				$parentTr.removeClass("tr-selected");
+				});
+
+			return;
+		}
+
+		//add
+		$span.addClass("fa-rotate-90");
+		if ($parentTr.next().hasClass("tr-detail")) return;
+		$parentTr.addClass("tr-selected");
+		// 	.eq(1)
+		// 	.addClass("active");
+		$("#tr-detail")
+			.clone()
+			.removeClass("hidden")
+			.insertAfter($parentTr)
+			.children("td")
+			.animate()
+			.wrapInner("<div style='display:none'/>")
+			.children()
+			.slideDown();
+	});
+	
+// 	$("i.fa").on("click", function() {
+// 		$(this).closest("tr").next().removeClass("hidden").find("div.collapse").collapse("toggle");
+// 	});
+	
+// 	$("div.collapse").on("hidden.bs.collapse", function(){
+// 		$(this).closest("tr").children("td").css("padding","0")
+// 								$(this).closest("tr").addClass("hidden")
+// 								});
+})();
+
+        </script>
+    </body>
+</html>

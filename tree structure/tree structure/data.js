@@ -1,3 +1,33 @@
+const SimpleComp = (params) => params.value;
+
+class ClassComp{
+    init(params) {
+        this.eGui = document.createElement("div");
+        this.eGui.innerHTML = '<button type="button" class="btn btn-primary">Primary</button>';
+        this.btnDollar = this.eGui.querySelector(".btn.btn-primary");
+    
+        // Option 1: Using a regular function
+        this.btnDollar.onclick = function() {
+            alert("sidjowei");
+        };
+    
+        // Option 2: Explicitly binding 'this' to the arrow function
+        // this.btnDollar.onclick = () => {
+        //     alert("sidjowei");
+        // }.bind(this);
+    }
+    
+    getGui()
+    {
+        return this.eGui;
+    }
+    refresh()
+    {
+        return false
+    }
+    destory(){}
+}
+
 function getData() {
     var rowData = [
         {
@@ -7,7 +37,8 @@ function getData() {
             CustomerName: ['Customer1'],
             Quantity: '',
             Process: '',
-            Action: 'Eye Symbol',
+            Action: "Action",
+            cellRenderer: new ClassComp(),
         },
         {
             orgHierarchy: ['salesOrder001', 'Master Product001'],
@@ -183,5 +214,6 @@ function getData() {
             Process: 'Bending, Cutting'
         },
     ];
+    
     return rowData;
 }
